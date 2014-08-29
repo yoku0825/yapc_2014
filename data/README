@@ -1,0 +1,16 @@
+* These scripts are using sample data of MySQL World Database.
+ * See http://dev.mysql.com/doc/index-other.html
+
+* You can make tsv by following commands.
+ * tsv files are not included this repository, because of I don't know its license.
+
+```
+$ wget http://downloads.mysql.com/docs/world_innodb.sql.gz
+$ mysqladmin create world
+$ zcat world_innodb.sql.gz | mysql hoge
+$ mysql -sse "SHOW TABLES" world | while read table ; do
+> mysql -sse "SELECT * FROM $table" world > $table.tsv
+> done
+```
+
+
